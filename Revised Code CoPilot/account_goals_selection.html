@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account Goals Selection</title>
+</head>
+<body>
+    <header>
+        <h1>Set your account goals!</h1>
+    </header>
+    <form>
+        <h2>Account Goals</h2>
+        <ul>
+            <li><input type="checkbox" id="IRA" name="IRA" value="IRA">
+                <label for="IRA">IRA</label></li>
+            <li><input type="checkbox" id="RothIRA" name="RothIRA" value="Roth IRA">
+                <label for="RothIRA">Roth IRA</label></li>
+            <li><input type="checkbox" id="401K" name="401K" value="401K">
+                <label for="401K">401K</label></li>
+            <li><input type="checkbox" id="Roth401K" name="Roth401K" value="Roth 401K">
+                <label for="Roth401K">Roth 401K</label></li>
+            <li><input type="checkbox" id="529" name="529" value="529">
+                <label for="529">529</label></li>
+        </ul>
+    </form>
+    <script>
+        function rankGoals() {
+            var checkedGoals = document.querySelectorAll('input[type="checkbox"]:checked');
+            var goalsList = document.createElement('ul');
+
+            checkedGoals.forEach(function(goal) {
+                var listItem = document.createElement('li');
+                listItem.textContent = goal.value;
+                goalsList.appendChild(listItem);
+            });
+
+            document.body.insertBefore(goalsList, document.querySelector('nav'));
+
+            goalsList.addEventListener('click', function(event) {
+                if (event.target.tagName === 'LI') {
+                    var direction = prompt('Move goal up (U) or down (D)?');
+                    var listItem = event.target;
+
+                    if (direction.toUpperCase() === 'U') {
+                        var previousSibling = listItem.previousElementSibling;
+                        if (previousSibling) {
+                            listItem.parentNode.insertBefore(listItem, previousSibling);
+                        }
+                    } else if (direction.toUpperCase() === 'D') {
+                        var nextSibling = listItem.nextElementSibling;
+                        if (nextSibling) {
+                            listItem.parentNode.insertBefore(nextSibling, listItem);
+                        }
+                    }
+                }
+            });
+        }
+
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            rankGoals();
+        });
+    </script>
+    <button onclick="rankGoals()">Rank Goals</button>
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="CopilotBudgetApp.html">Home</a></li>
+                <li><a href="build.html">Build</a></li>
+                <li><a href="projections.html">Projections</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+    <footer>
+        <p></p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

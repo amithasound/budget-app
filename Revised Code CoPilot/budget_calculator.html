@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Budget Calculator</title>
+</head>
+<body>
+    <h1>Enter your expenses:</h1>
+    <div>
+
+        <p>Monthly Income:</p>
+        <input type="number" id="MonthlyIncome" placeholder="Enter monthly income">
+        <p>Rent:</p>
+        <input type="number" id="Rent" placeholder="Enter rent $">
+        <p>Food:</p>
+        <input type="number" id="Food" placeholder="Enter food $">
+        <p>Streaming:</p>
+        <input type="number" id="Streaming" placeholder="Enter streaming $">
+        <p>Recreation:</p>
+        <input type="number" id="Recreation" placeholder="Enter recreation $">
+        <p>Gym:</p>
+        <input type="number" id="Gym" placeholder="Enter gym $">
+        <p>Rainy Day Fund:</p>
+        <input type="number" id="RainyDayFund" placeholder="Enter rainy day fund">
+        <div>
+        <button onclick="addCategory()">Add Category</button>
+        <script>
+            function addCategory() {
+                var category = prompt("Enter the name of the new category:");
+                var categoryLabel = document.createElement("p");
+                categoryLabel.textContent = category + ":";
+                var categoryInput = document.createElement("input");
+                categoryInput.type = "number";
+                categoryInput.placeholder = "Enter " + category + " $";
+                categoryInput.id = category;
+                var container = document.getElementById("expensesContainer");
+                container.appendChild(categoryLabel);
+                container.appendChild(categoryInput);
+            }
+        </script>
+        <div id="expensesContainer"></div>
+    </div>
+
+    </div>
+    
+    <h2>Total To Invest:</h2>
+    <span id="totalToInvest"></span>
+    <script>
+        function calculateTotalToInvest() {
+            var monthlyIncome = parseFloat(document.getElementById("MonthlyIncome").value);
+            var rent = parseFloat(document.getElementById("Rent").value);
+            var food = parseFloat(document.getElementById("Food").value);
+            var streaming = parseFloat(document.getElementById("Streaming").value);
+            var recreation = parseFloat(document.getElementById("Recreation").value);
+            var gym = parseFloat(document.getElementById("Gym").value);
+            var rainyDayFund = parseFloat(document.getElementById("RainyDayFund").value);
+
+            var totalExpenses = rent + food + streaming + recreation + gym + rainyDayFund;
+            var totalToInvest = monthlyIncome - totalExpenses;
+
+            document.getElementById("totalToInvest").textContent = totalToInvest.toFixed(2);
+        }
+    </script>
+    <button onclick="calculateTotalToInvest()">Calculate Total To Invest</button>
+    <script src="script.js"></script>
+
+
+    <footer>
+        <nav>
+            <ul>
+                <li><a href="CopilotBudgetApp.html">Home</a></li>
+                <li><a href="build.html">Build</a></li>
+                <li><a href="projections.html">Projections</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </footer>
+
+</body>
+</html>
