@@ -7,6 +7,7 @@
     <header>
         <h1>Set your account goals!</h1>
     </header>
+
     <form>
         <h2>Account Goals</h2>
         <ul>
@@ -21,46 +22,68 @@
             <li><input type="checkbox" id="529" name="529" value="529">
                 <label for="529">529</label></li>
         </ul>
+        <input type="submit" value="Submit">
     </form>
+
+
     <script>
-        function rankGoals() {
-            var checkedGoals = document.querySelectorAll('input[type="checkbox"]:checked');
-            var goalsList = document.createElement('ul');
-
-            checkedGoals.forEach(function(goal) {
-                var listItem = document.createElement('li');
-                listItem.textContent = goal.value;
-                goalsList.appendChild(listItem);
-            });
-
-            document.body.insertBefore(goalsList, document.querySelector('nav'));
-
-            goalsList.addEventListener('click', function(event) {
-                if (event.target.tagName === 'LI') {
-                    var direction = prompt('Move goal up (U) or down (D)?');
-                    var listItem = event.target;
-
-                    if (direction.toUpperCase() === 'U') {
-                        var previousSibling = listItem.previousElementSibling;
-                        if (previousSibling) {
-                            listItem.parentNode.insertBefore(listItem, previousSibling);
-                        }
-                    } else if (direction.toUpperCase() === 'D') {
-                        var nextSibling = listItem.nextElementSibling;
-                        if (nextSibling) {
-                            listItem.parentNode.insertBefore(nextSibling, listItem);
-                        }
-                    }
-                }
-            });
-        }
-
         document.querySelector('form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            rankGoals();
+            event.preventDefault(); // Prevent form submission
+
+            // Get all the selected checkboxes
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+
+            // Create an array to store the selected values
+            const selectedValues = [];
+
+            // Iterate over the selected checkboxes and add their values to the array
+            checkboxes.forEach(function(checkbox) {
+                selectedValues.push(checkbox.value);
+            });
+
+            // Print the selected values as a number list
+            const listContainer = document.createElement('div');
+            const orderedList = document.createElement('ol');
+
+            selectedValues.forEach(function(value) {
+                const listItem = document.createElement('li');
+                listItem.textContent = value;
+                orderedList.appendChild(listItem);
+            });
+
+            listContainer.appendChild(orderedList);
+            document.body.appendChild(listContainer);
+
+            // Add event listeners to the list items for ranking
+            const listItems = orderedList.getElementsByTagName('li');
+
+            for (let i = 0; i < listItems.length; i++) {
+                const listItem = listItems[i];
+
+                // Add event listener for moving the item up
+                const moveUpButton = document.createElement('button');
+                moveUpButton.textContent = '↑';
+                moveUpButton.addEventListener('click', function() {
+                    if (i > 0) {
+                        orderedList.insertBefore(listItem, listItems[i - 1]);
+                    }
+                });
+                listItem.appendChild(moveUpButton);
+
+                // Add event listener for moving the item down
+                const moveDownButton = document.createElement('button');
+                moveDownButton.textContent = '↓';
+                moveDownButton.addEventListener('click', function() {
+                    if (i < listItems.length - 1) {
+                        orderedList.insertBefore(listItems[i + 1], listItem);
+                    }
+                });
+                listItem.appendChild(moveDownButton);
+            }
         });
     </script>
-    <button onclick="rankGoals()">Rank Goals</button>
+
+    </style>
     <footer>
         <nav>
             <ul>
@@ -72,9 +95,6 @@
         </nav>
     </footer>
 
-    <footer>
-        <p></p>
-    </footer>
     <script src="script.js"></script>
 </body>
 </html>
