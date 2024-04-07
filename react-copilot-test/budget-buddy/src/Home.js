@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import InvestmentGoals from './InvestmentGoals';
 import './styles.css';
 import { Button } from '@material-ui/core';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
 const Home = () => {
     return (
@@ -15,9 +16,9 @@ const Home = () => {
 
             <main>
                 <p>insert progress bars for different accounts here</p>
-                  <Button component={Link} to="/investment-goals" variant="contained" color="primary">
-                                    Investment Accounts 101
-                                </Button>
+            <Button component={Link} to="/investment-goals" variant="contained" color="primary" endIcon={<ArrowForwardIcon />}>
+                Investment Accounts 101
+            </Button>
             </main>
 
             <footer>
