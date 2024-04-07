@@ -2,17 +2,22 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import InvestmentGoals from './InvestmentGoals';
+import './styles.css';
+import { Button } from '@material-ui/core';
 
 const Home = () => {
     return (
         <div>
             <header>
-                <h1>Welcome to Budget Buddy!</h1>
+                <h1>Welcome, Julia!</h1>
+                <h2>Welcome to Budget Buddy!</h2>
             </header>
 
             <main>
                 <p>insert progress bars for different accounts here</p>
-                <Link to="/investment-goals" className="btn btn-primary">Investment Accounts 101</Link>
+                  <Button component={Link} to="/investment-goals" variant="contained" color="primary">
+                                    Investment Accounts 101
+                                </Button>
             </main>
 
             <footer>
