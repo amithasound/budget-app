@@ -8,6 +8,8 @@ import Roth401K from './Roth401K';
 import K401 from './K401';
 import Plans529 from './Plans529';
 import Profile from './Profile';
+import Build from './Build';
+import BudgetCalculator from './BudgetCalculator';
 
 
 
@@ -15,7 +17,7 @@ import Profile from './Profile';
 const App = () => {
     return (
         <div>
-            <Profile />
+            <BudgetCalculator   />
            <Router>
                  <Routes>
                        <Route path="/" element={<Home />} />
