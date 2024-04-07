@@ -32,7 +32,7 @@ const BudgetCalculator = () => {
             <Button variant="contained" color="primary" onClick={calculateTotalToInvest}>
                 Calculate Total To Invest
             </Button>
-            <Typography variant="h6">Total to Invest: {totalToInvest}</Typography>
+            <Typography variant="h6">Total to Invest: ${totalToInvest}</Typography>
         </div>
     );
 };

@@ -10,6 +10,7 @@ import Plans529 from './Plans529';
 import Profile from './Profile';
 import Build from './Build';
 import BudgetCalculator from './BudgetCalculator';
+import AccountGoals from './AccountGoals';
 
 
 
@@ -17,6 +18,7 @@ import BudgetCalculator from './BudgetCalculator';
 const App = () => {
     return (
         <div>
+            <AccountGoals />
             <BudgetCalculator   />
            <Router>
                  <Routes>
