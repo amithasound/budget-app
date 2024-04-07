@@ -7,6 +7,7 @@ import IRA from './IRA';
 import Roth401K from './Roth401K';
 import K401 from './K401';
 import Plans529 from './Plans529';
+import Profile from './Profile';
 
 
 
@@ -14,6 +15,7 @@ import Plans529 from './Plans529';
 const App = () => {
     return (
         <div>
+            <Profile />
            <Router>
                  <Routes>
                        <Route path="/" element={<Home />} />
@@ -22,7 +24,8 @@ const App = () => {
                        <Route path="/IRA" element={<IRA />} />
                        <Route path="/Roth401K" element={<Roth401K />} />`
                        <Route path="/K401" element={<K401 />} />`
-                          <Route path="/Plans529" element={<Plans529 />} />`
+                       <Route path="/Plans529" element={<Plans529 />} />`
+                       <Route path="/Profile" element={<Profile />} />`
                   </Routes>
            </Router>
         </div>
