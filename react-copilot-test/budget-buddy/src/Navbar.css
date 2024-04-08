@@ -1,0 +1,30 @@
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* Add this line */
+    background-color: #6A088C;
+    padding: 25px 0;
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li {
+    margin: 0 30px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.logo {
+    height: 50px;
+    margin-right: 20px;
+}

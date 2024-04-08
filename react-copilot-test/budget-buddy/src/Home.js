@@ -16,7 +16,7 @@ const Home = () => {
 
             <main>
                 <p>insert progress bars for different accounts here</p>
-            <Button component={Link} to="/investment-goals" variant="contained" color="primary" endIcon={<ArrowForwardIcon />}>
+            <Button component={Link} to="/investment-goals" variant="contained"  style={{backgroundColor: '#6A088C'}} color="primary" endIcon={<ArrowForwardIcon />}>
                 Investment Accounts 101
             </Button>
             </main>

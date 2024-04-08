@@ -11,16 +11,14 @@ import Profile from './Profile';
 import Build from './Build';
 import BudgetCalculator from './BudgetCalculator';
 import AccountGoals from './AccountGoals';
-
-
+import Navbar from './Navbar';
 
 
 const App = () => {
     return (
         <div>
-            <AccountGoals />
-            <BudgetCalculator   />
            <Router>
+                <Navbar />
                  <Routes>
                        <Route path="/" element={<Home />} />
                        <Route path="/investment-goals" element={<InvestmentGoals />} />
@@ -30,6 +28,9 @@ const App = () => {
                        <Route path="/K401" element={<K401 />} />`
                        <Route path="/Plans529" element={<Plans529 />} />`
                        <Route path="/Profile" element={<Profile />} />`
+                       <Route path="/Build" element={<Build />} />`
+                       <Route path="/BudgetCalculator" element={<BudgetCalculator />} />`
+                       <Route path="/AccountGoals" element={<AccountGoals />} />`
                   </Routes>
            </Router>
         </div>

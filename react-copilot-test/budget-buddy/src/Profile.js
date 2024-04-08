@@ -16,7 +16,7 @@ const Profile = () => {
             <div>
                 <p>Joined: March 18th, 2024</p>
                 <p>Username: jfoy3</p>
-                <Button variant="contained" color="primary" onClick={changePassword}>
+                <Button variant="contained" style={{backgroundColor: '#6A088C'}} color="primary" onClick={changePassword}>
                                     Change Password
                                 </Button>
             </div>
