@@ -5,63 +5,94 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 
+
 const AccountGoals = () => {
-    const [checkedIRA, setCheckedIRA] = useState(false);
-    const [checkedRothIRA, setCheckedRothIRA] = useState(false);
-    const [checked401K, setChecked401K] = useState(false);
-    const [checkedRoth401K, setCheckedRoth401K] = useState(false);
-    const [checked529, setChecked529] = useState(false);
+    const [selectedAccounts, setSelectedAccounts] = useState([]);
+
+    const handleAccountSelection = (account) => {
+        if (selectedAccounts.includes(account)) {
+            setSelectedAccounts(selectedAccounts.filter((acc) => acc !== account));
+        } else {
+            setSelectedAccounts([...selectedAccounts, account]);
+        }
+    };
+
+    const handleSubmit = () => {
+        console.log("Selected Accounts:", selectedAccounts);
+    };
 
     return (
         <div>
-            <Typography variant="h4">Set Your Account Goals</Typography>
+            <Typography variant="h6" style={{ color: '#6A088C', fontWeight: 'bold', fontSize: '1.5rem' }}>Select Investment Accounts:</Typography>
             <List>
                 <ListItem>
                     <FormControlLabel
-                        control={<Checkbox
-                                    style={{color: checkedIRA ? '#6A088C' : ''}}
-                                    onChange={() => setCheckedIRA(!checkedIRA)}
-                                 />}
-                        label="IRA"
+                        control={
+                            <Checkbox
+                                checked={selectedAccounts.includes("401K")}
+                                onChange={() => handleAccountSelection("401K")}
+                            />
+                        }
+                        label={<Typography style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>401K</Typography>}
                     />
                 </ListItem>
                 <ListItem>
                     <FormControlLabel
-                        control={<Checkbox
-                                    style={{color: checkedRothIRA ? '#6A088C' : ''}}
-                                    onChange={() => setCheckedRothIRA(!checkedRothIRA)}
-                                 />}
-                        label="Roth IRA"
+                        control={
+                            <Checkbox
+                                checked={selectedAccounts.includes("Roth 401K")}
+                                onChange={() => handleAccountSelection("Roth 401K")}
+                            />
+                        }
+                        label={<Typography style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Roth 401K</Typography>}
                     />
                 </ListItem>
                 <ListItem>
                     <FormControlLabel
-                        control={<Checkbox
-                                    style={{color: checked401K ? '#6A088C' : ''}}
-                                    onChange={() => setChecked401K(!checked401K)}
-                                 />}
-                        label="401K"
+                        control={
+                            <Checkbox
+                                checked={selectedAccounts.includes("IRA")}
+                                onChange={() => handleAccountSelection("IRA")}
+                            />
+                        }
+                        label={<Typography style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>IRA</Typography>}
                     />
                 </ListItem>
                 <ListItem>
                     <FormControlLabel
-                        control={<Checkbox
-                                    style={{color: checkedRoth401K ? '#6A088C' : ''}}
-                                    onChange={() => setCheckedRoth401K(!checkedRoth401K)}
-                                 />}
-                        label="Roth 401K"
+                        control={
+                            <Checkbox
+                                checked={selectedAccounts.includes("Roth IRA")}
+                                onChange={() => handleAccountSelection("Roth IRA")}
+                            />
+                        }
+                        label={<Typography style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Roth IRA</Typography>}
                     />
                 </ListItem>
                 <ListItem>
                     <FormControlLabel
-                        control={<Checkbox
-                                    style={{color: checked529 ? '#6A088C' : ''}}
-                                    onChange={() => setChecked529(!checked529)}
-                                 />}
-                        label="529"
+                        control={
+                            <Checkbox
+                                checked={selectedAccounts.includes("529")}
+                                onChange={() => handleAccountSelection("529")}
+                            />
+                        }
+                        label={<Typography style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>529</Typography>}
+                    />
+                </ListItem>
+                <ListItem>
+                    <FormControlLabel
+                        control={
+                            <Checkbox
+                                checked={selectedAccounts.includes("Other Investment Goal")}
+                                onChange={() => handleAccountSelection("Other Investment Goal")}
+                            />
+                        }
+                        label={<Typography style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Other Investment Goal</Typography>}
                     />
                 </ListItem>
             </List>
+            <button onClick={handleSubmit}>Submit</button> 
         </div>
     );
 };

@@ -15,17 +15,19 @@ const Build = () => {
 
     return (
         <div>
-            <h1>Build and Edit Your Finances!</h1>
+            <h1 style={{ color: '#6A088C' }}>Build and Edit Your Finances!</h1>
 
-            <Button variant="contained" style={{backgroundColor: '#6A088C'}}  color="primary" onClick={navigateToBudgetCalculator}>
-                Budget Calculator
+            <Button variant="contained" style={{backgroundColor: '#6A088C', borderRadius: '20px', fontSize: '1.5rem'}}  color="primary" onClick={navigateToBudgetCalculator}>
+                Budget Calculator 
+                <span style={{ color: 'white' }}> --{'>'} </span>
             </Button>
-            <p>Enter your expenses to calculate how much money you have available to invest</p>
+            <p style={{fontSize: '1.5rem'}}>Enter your expenses to calculate how much money you have available to invest</p>
 
-            <Button variant="contained"style={{backgroundColor: '#6A088C'}} color="primary" onClick={navigateToAccountGoals}>
+            <Button variant="contained"style={{backgroundColor: '#6A088C', borderRadius: '20px', fontSize: '1.5rem'}} color="primary" onClick={navigateToAccountGoals}>
                 Account Goals Selection
+                <span style={{ color: 'white' }}>--{'>'}</span>
             </Button>
-            <p>Select and rank your account goals to calculate how to divide up your money </p>
+            <p style={{fontSize: '1.5rem'}}>Select and rank your account goals to calculate how to divide up your money </p>
 
             <footer>
             </footer>

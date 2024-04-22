@@ -10,15 +10,15 @@ const Profile = () => {
     return (
         <div>
             <header>
-                 <AccountCircleIcon style={{ fontSize: 100 }} />
+                 <AccountCircleIcon style={{ fontSize: '10rem' }} />
             </header>
-            <h1>Julia Foy</h1>
+            <h1 style={{ fontSize: '1.5rem', color: '#6A088C' }}>Julia Foy</h1>
             <div>
-                <p>Joined: March 18th, 2024</p>
-                <p>Username: jfoy3</p>
-                <Button variant="contained" style={{backgroundColor: '#6A088C'}} color="primary" onClick={changePassword}>
-                                    Change Password
-                                </Button>
+                <p style={{ fontSize: '1.5rem' }}>Joined: March 18th, 2024</p>
+                <p style={{ fontSize: '1.5rem' }}>Username: jfoy3</p>
+                <Button variant="contained" style={{ backgroundColor: '#6A088C', fontSize: '1.5rem' }} color="primary" onClick={changePassword}>
+                    Change Password
+                </Button>
             </div>
             <footer>
 

@@ -21,18 +21,18 @@ const BudgetCalculator = () => {
 
     return (
         <div>
-            <h1>Enter your expenses:</h1>
-            <div><TextField label="Monthly Income" variant="outlined" onChange={e => setMonthlyIncome(e.target.value)} /></div>
-            <div><TextField label="Rent" variant="outlined" onChange={e => setRent(e.target.value)} /></div>
-            <div><TextField label="Food" variant="outlined" onChange={e => setFood(e.target.value)} /></div>
-            <div><TextField label="Streaming" variant="outlined" onChange={e => setStreaming(e.target.value)} /></div>
-            <div><TextField label="Recreation" variant="outlined" onChange={e => setRecreation(e.target.value)} /></div>
-            <div><TextField label="Gym" variant="outlined" onChange={e => setGym(e.target.value)} /></div>
-            <div><TextField label="Rainy Day Fund" variant="outlined" onChange={e => setRainyDayFund(e.target.value)} /></div>
-            <Button variant="contained" color="primary" onClick={calculateTotalToInvest}>
+            <h1 style={{ color: '#6A088C', fontSize: '1.5rem' }}>Enter your expenses:</h1>
+            <div><TextField label="Monthly Income" variant="outlined" onChange={e => setMonthlyIncome(e.target.value)} style={{ fontSize: '1.5rem' }} /></div>
+            <div><TextField label="Rent" variant="outlined" onChange={e => setRent(e.target.value)} style={{ fontSize: '1.5rem' }} /></div>
+            <div><TextField label="Food" variant="outlined" onChange={e => setFood(e.target.value)} style={{ fontSize: '1.5rem' }} /></div>
+            <div><TextField label="Streaming" variant="outlined" onChange={e => setStreaming(e.target.value)} style={{ fontSize: '1.5rem' }} /></div>
+            <div><TextField label="Recreation" variant="outlined" onChange={e => setRecreation(e.target.value)} style={{ fontSize: '1.5rem' }} /></div>
+            <div><TextField label="Gym" variant="outlined" onChange={e => setGym(e.target.value)} style={{ fontSize: '1.5rem' }} /></div>
+            <div><TextField label="Rainy Day Fund" variant="outlined" onChange={e => setRainyDayFund(e.target.value)} style={{ fontSize: '1.5rem' }} /></div>
+            <Button variant="contained" color="primary" style={{ backgroundColor: '#6A088C', fontSize: '1.5rem' }} onClick={calculateTotalToInvest}>
                 Calculate Total To Invest
             </Button>
-            <Typography variant="h6">Total to Invest: ${totalToInvest}</Typography>
+            <Typography variant="h6" style={{ color: '#6A088C', fontSize: '1.5rem' }}>Total to Invest: ${totalToInvest}</Typography>
         </div>
     );
 };

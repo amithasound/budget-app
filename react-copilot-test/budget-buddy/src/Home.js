@@ -26,30 +26,29 @@ const Home = () => {
     return (
         <div className="main-container">
             <header>
-                <h1 style={{ color: '#6A088C' }}>Hello, Julia!</h1>
-                <p>Welcome to Budget Buddy!</p>
+                <h1 style={{ color: '#6A088C', fontSize: '1.5rem' }}>Hello, Julia!</h1>
+                <p style={{ fontSize: '1.5rem' }}>Welcome to Budget Buddy!</p>
             </header>
             <main>
-                            <h4>View your Investment Progress: </h4>
-                            <div style={{ display: 'flex', alignItems: 'center' }}>
-                                <span style={{ marginRight: '2px', width: '100px' }}>   IRA :  </span>
-                                <StyledLinearProgress variant="determinate" value={40} />
-                            </div>
-                            <div style={{ display: 'flex', alignItems: 'center' }}>
-                                <span style={{ marginRight: '2px', width: '100px' }}> 401K :</span>
-                                <StyledLinearProgress variant="determinate" value={60} />
-                            </div>
-                            <div style={{ display: 'flex', alignItems: 'center' }}>
-                                <span style={{ marginRight: '2px', width: '100px' }}> 529 :</span>
-                                <StyledLinearProgress variant="determinate" value={30} />
-                            </div>
-                            <Button component={Link} to="/investment-goals" variant="contained"  style={{backgroundColor: '#6A088C', marginTop: '20px', borderRadius: '20px',  fontWeight: 'bold',textTransform: 'none'}} color="primary" endIcon={<ArrowForwardIcon />}>
-                                Investment Accounts 101
-                            </Button>
-                        </main>
+                <h4 style={{ fontSize: '1.5rem' }}>View your Investment Progress: </h4>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <span style={{ marginRight: '2px', width: '100px', fontSize: '1.5rem' }}>IRA :</span>
+                    <StyledLinearProgress variant="determinate" value={40} />
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <span style={{ marginRight: '2px', width: '100px', fontSize: '1.5rem' }}>401K :</span>
+                    <StyledLinearProgress variant="determinate" value={60} />
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <span style={{ marginRight: '2px', width: '100px', fontSize: '1.5rem' }}>529 :</span>
+                    <StyledLinearProgress variant="determinate" value={30} />
+                </div>
+                <Button component={Link} to="/investment-goals" variant="contained" style={{ backgroundColor: '#6A088C', marginTop: '20px', borderRadius: '20px', fontWeight: 'bold', textTransform: 'none', fontSize: '1.5rem' }} color="primary" endIcon={<ArrowForwardIcon />}>
+                    Learn About Investment Accounts
+                </Button>
+            </main>
             <footer>
             </footer>
-
         </div>
     );
 }
