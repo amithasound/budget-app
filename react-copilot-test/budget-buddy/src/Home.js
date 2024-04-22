@@ -9,7 +9,7 @@ import LinearProgress, { linearProgressClasses } from '@mui/material/LinearProgr
 import { styled } from '@mui/system';
 
 const StyledLinearProgress = styled(LinearProgress)(({ theme }) => ({
-  height: 20,
+  height: 22,
   borderRadius: 300,
   width: '30%',
   margin: '10px 0',
@@ -18,7 +18,7 @@ const StyledLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 300,
-    backgroundColor: theme.palette.mode === 'light' ? '#1a90ff' : '#308fe8',
+    backgroundColor: theme.palette.mode === 'light' ? '#6A088C' : '#308fe8',
   },
 }));
 
@@ -26,24 +26,24 @@ const Home = () => {
     return (
         <div className="main-container">
             <header>
-                <h1>Hello, Julia!</h1>
-                <h2>Welcome to Budget Buddy!</h2>
+                <h1 style={{ color: '#6A088C' }}>Hello, Julia!</h1>
+                <p>Welcome to Budget Buddy!</p>
             </header>
             <main>
-                            <p>View your Investment Progress: </p>
+                            <h4>View your Investment Progress: </h4>
                             <div style={{ display: 'flex', alignItems: 'center' }}>
                                 <span style={{ marginRight: '2px', width: '100px' }}>   IRA :  </span>
-                                <StyledLinearProgress variant="determinate" value={20} />
+                                <StyledLinearProgress variant="determinate" value={40} />
                             </div>
                             <div style={{ display: 'flex', alignItems: 'center' }}>
                                 <span style={{ marginRight: '2px', width: '100px' }}> 401K :</span>
-                                <StyledLinearProgress variant="determinate" value={50} />
+                                <StyledLinearProgress variant="determinate" value={60} />
                             </div>
                             <div style={{ display: 'flex', alignItems: 'center' }}>
                                 <span style={{ marginRight: '2px', width: '100px' }}> 529 :</span>
-                                <StyledLinearProgress variant="determinate" value={10} />
+                                <StyledLinearProgress variant="determinate" value={30} />
                             </div>
-                            <Button component={Link} to="/investment-goals" variant="contained"  style={{backgroundColor: '#6A088C'}} color="primary" endIcon={<ArrowForwardIcon />}>
+                            <Button component={Link} to="/investment-goals" variant="contained"  style={{backgroundColor: '#6A088C', marginTop: '20px', borderRadius: '20px',  fontWeight: 'bold',textTransform: 'none'}} color="primary" endIcon={<ArrowForwardIcon />}>
                                 Investment Accounts 101
                             </Button>
                         </main>
