@@ -8,7 +8,7 @@ const Profile = () => {
     };
 
     return (
-        <div>
+        <div className = "profile-container">
             <header>
                  <AccountCircleIcon style={{ fontSize: '10rem' }} />
             </header>
