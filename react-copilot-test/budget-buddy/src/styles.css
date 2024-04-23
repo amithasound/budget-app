@@ -6,3 +6,11 @@ body {
 .main-container {
     margin-left: 20px; /* Adjust this value as needed */
 }
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* This will make the container take the full viewport height */
+}
