@@ -5,7 +5,6 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 
-
 const AccountGoals = () => {
     const [selectedAccounts, setSelectedAccounts] = useState([]);
 
@@ -16,83 +15,110 @@ const AccountGoals = () => {
             setSelectedAccounts([...selectedAccounts, account]);
         }
     };
-
-    const handleSubmit = () => {
-        console.log("Selected Accounts:", selectedAccounts);
+    const handleMoveUp = (index) => {
+        if (index > 0) {
+            const updatedAccounts = [...selectedAccounts];
+            const temp = updatedAccounts[index];
+            updatedAccounts[index] = updatedAccounts[index - 1];
+            updatedAccounts[index - 1] = temp;
+            setSelectedAccounts(updatedAccounts);
+        }
+    };
+    const handleMoveDown = (index) => {
+        if (index < selectedAccounts.length - 1) {
+            const updatedAccounts = [...selectedAccounts];
+            const temp = updatedAccounts[index];
+            updatedAccounts[index] = updatedAccounts[index + 1];
+            updatedAccounts[index + 1] = temp;
+            setSelectedAccounts(updatedAccounts);
+        }
     };
 
     return (
         <div>
-            <Typography variant="h6" style={{ color: '#6A088C', fontWeight: 'bold', fontSize: '1.5rem' }}>Select Investment Accounts:</Typography>
+            <Typography variant="h6">Select Accounts:</Typography>
+            <ol>
+                {selectedAccounts.map((account, index) => (
+                    <li key={index}>
+                        {account}
+                        <button onClick={() => handleMoveUp(index)}>&uarr;</button>
+                        <button onClick={() => handleMoveDown(index)}>&darr;</button>
+                    </li>
+                ))}
+            </ol>
+            <button onClick={() => {
+                const orderedListItems = selectedAccounts.map((account, index) => account);
+                console.log(orderedListItems);
+            }}>Submit Final Ranking</button>
             <List>
                 <ListItem>
                     <FormControlLabel
                         control={
                             <Checkbox
-                                checked={selectedAccounts.includes("401K")}
-                                onChange={() => handleAccountSelection("401K")}
+                                checked={selectedAccounts.includes('401K')}
+                                onChange={() => handleAccountSelection('401K')}
                             />
                         }
-                        label={<Typography style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>401K</Typography>}
+                        label="401K"
                     />
                 </ListItem>
                 <ListItem>
                     <FormControlLabel
                         control={
                             <Checkbox
-                                checked={selectedAccounts.includes("Roth 401K")}
-                                onChange={() => handleAccountSelection("Roth 401K")}
+                                checked={selectedAccounts.includes('Roth 401K')}
+                                onChange={() => handleAccountSelection('Roth 401K')}
                             />
                         }
-                        label={<Typography style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Roth 401K</Typography>}
+                        label="Roth 401k"
                     />
                 </ListItem>
                 <ListItem>
                     <FormControlLabel
                         control={
                             <Checkbox
-                                checked={selectedAccounts.includes("IRA")}
-                                onChange={() => handleAccountSelection("IRA")}
+                                checked={selectedAccounts.includes('IRA')}
+                                onChange={() => handleAccountSelection('IRA')}
                             />
                         }
-                        label={<Typography style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>IRA</Typography>}
+                        label="IRA"
                     />
                 </ListItem>
                 <ListItem>
                     <FormControlLabel
                         control={
                             <Checkbox
-                                checked={selectedAccounts.includes("Roth IRA")}
-                                onChange={() => handleAccountSelection("Roth IRA")}
+                                checked={selectedAccounts.includes('Roth IRA')}
+                                onChange={() => handleAccountSelection('Roth IRA')}
                             />
                         }
-                        label={<Typography style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Roth IRA</Typography>}
+                        label="Roth IRA"
                     />
                 </ListItem>
                 <ListItem>
                     <FormControlLabel
                         control={
                             <Checkbox
-                                checked={selectedAccounts.includes("529")}
-                                onChange={() => handleAccountSelection("529")}
+                                checked={selectedAccounts.includes('529')}
+                                onChange={() => handleAccountSelection('529')}
                             />
                         }
-                        label={<Typography style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>529</Typography>}
+                        label="529"
                     />
                 </ListItem>
                 <ListItem>
                     <FormControlLabel
                         control={
                             <Checkbox
-                                checked={selectedAccounts.includes("Other Investment Goal")}
-                                onChange={() => handleAccountSelection("Other Investment Goal")}
+                                checked={selectedAccounts.includes('Other Investment Goal')}
+                                onChange={() => handleAccountSelection('Other Investment Goal')}
                             />
                         }
-                        label={<Typography style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Other Investment Goal</Typography>}
+                        label="Other Investment Goal"
                     />
                 </ListItem>
+                {/* Add more ListItem components for additional accounts */}
             </List>
-            <button onClick={handleSubmit}>Submit</button> 
         </div>
     );
 };
