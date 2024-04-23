@@ -4,7 +4,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-
+<Typography variant="h6" style={{fontSize: '1.5rem'}}>Select Accounts:</Typography>
 const AccountGoals = () => {
     const [selectedAccounts, setSelectedAccounts] = useState([]);
 
@@ -36,10 +36,10 @@ const AccountGoals = () => {
 
     return (
         <div>
-            <Typography variant="h6">Select Accounts:</Typography>
+            <Typography variant="h6" style={{ color: '#6A088C', fontSize: '1.5rem', fontWeight: 'bold' }}>Select Accounts:</Typography>
             <ol>
                 {selectedAccounts.map((account, index) => (
-                    <li key={index}>
+                    <li key={index} style={{ fontSize: '1.5rem' }}>
                         {account}
                         <button onClick={() => handleMoveUp(index)}>&uarr;</button>
                         <button onClick={() => handleMoveDown(index)}>&darr;</button>
@@ -49,9 +49,9 @@ const AccountGoals = () => {
             <button onClick={() => {
                 const orderedListItems = selectedAccounts.map((account, index) => account);
                 console.log(orderedListItems);
-            }}>Submit Final Ranking</button>
-            <List>
-                <ListItem>
+            }} style={{ fontSize: '1.5rem' }}>Submit Final Ranking</button>
+            <List >
+                <ListItem >
                     <FormControlLabel
                         control={
                             <Checkbox
@@ -60,6 +60,7 @@ const AccountGoals = () => {
                             />
                         }
                         label="401K"
+                        style={{ fontSize: '1.5rem' }}
                     />
                 </ListItem>
                 <ListItem>
@@ -71,6 +72,7 @@ const AccountGoals = () => {
                             />
                         }
                         label="Roth 401k"
+                        style={{ fontSize: '1.5rem' }}
                     />
                 </ListItem>
                 <ListItem>
@@ -82,6 +84,7 @@ const AccountGoals = () => {
                             />
                         }
                         label="IRA"
+                        style={{ fontSize: '1.5rem' }}
                     />
                 </ListItem>
                 <ListItem>
@@ -93,6 +96,7 @@ const AccountGoals = () => {
                             />
                         }
                         label="Roth IRA"
+                        style={{ fontSize: '1.5rem' }}
                     />
                 </ListItem>
                 <ListItem>
@@ -104,6 +108,7 @@ const AccountGoals = () => {
                             />
                         }
                         label="529"
+                        style={{ fontSize: '1.5rem' }}
                     />
                 </ListItem>
                 <ListItem>
@@ -115,6 +120,7 @@ const AccountGoals = () => {
                             />
                         }
                         label="Other Investment Goal"
+                        style={{ fontSize: '1.5rem' }}
                     />
                 </ListItem>
                 {/* Add more ListItem components for additional accounts */}
