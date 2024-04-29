@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import AccountGoals from './AccountGoals';
+ import { useNavigate } from 'react-router-dom';// Import AccountGoals component
 
 const BudgetCalculator = () => {
     const [monthlyIncome, setMonthlyIncome] = useState(0);
@@ -12,6 +14,12 @@ const BudgetCalculator = () => {
     const [gym, setGym] = useState(0);
     const [rainyDayFund, setRainyDayFund] = useState(0);
     const [totalToInvest, setTotalToInvest] = useState(0);
+    const navigate = useNavigate();
+
+    const navigateToAccountGoals = () => {
+            navigate('/AccountGoals');
+        }
+
 
     const calculateTotalToInvest = () => {
         const totalExpenses = parseFloat(rent) + parseFloat(food) + parseFloat(streaming) + parseFloat(recreation) + parseFloat(gym) + parseFloat(rainyDayFund);
@@ -33,7 +41,14 @@ const BudgetCalculator = () => {
                 Calculate Total To Invest
             </Button>
             <Typography variant="h6" style={{ color: '#6A088C', fontSize: '1.5rem' }}>Total to Invest: ${totalToInvest}</Typography>
+            <Button variant="contained"style={{backgroundColor: '#6A088C', borderRadius: '20px', fontSize: '1.5rem'}} color="primary" onClick={navigateToAccountGoals}>
+                                Account Goals Selection
+                                <span style={{ color: 'white' }}>--{'>'}</span>
+             </Button>
+
+
         </div>
+
     );
 };
 

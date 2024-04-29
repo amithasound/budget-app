@@ -23,12 +23,6 @@ const Build = () => {
             </Button>
             <p style={{fontSize: '1.5rem'}}>Enter your expenses to calculate how much money you have available to invest</p>
 
-            <Button variant="contained"style={{backgroundColor: '#6A088C', borderRadius: '20px', fontSize: '1.5rem'}} color="primary" onClick={navigateToAccountGoals}>
-                Account Goals Selection
-                <span style={{ color: 'white' }}>--{'>'}</span>
-            </Button>
-            <p style={{fontSize: '1.5rem'}}>Select and rank your account goals to calculate how to divide up your money </p>
-
             <footer>
             </footer>
         </div>

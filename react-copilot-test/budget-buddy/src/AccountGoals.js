@@ -15,6 +15,9 @@ const AccountGoals = () => {
             setSelectedAccounts([...selectedAccounts, account]);
         }
     };
+
+
+
     const handleMoveUp = (index) => {
         if (index > 0) {
             const updatedAccounts = [...selectedAccounts];
@@ -125,6 +128,7 @@ const AccountGoals = () => {
                 </ListItem>
                 {/* Add more ListItem components for additional accounts */}
             </List>
+
         </div>
     );
 };
